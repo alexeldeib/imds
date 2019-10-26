@@ -1,0 +1,16 @@
+# https://taskfile.dev
+
+version: '2'
+
+tasks:
+  default:
+    cmds:
+    - fmt
+  # Formatting and linting
+  fmt:
+    cmds:
+    - gofmt -w -s .
+    - goimports -local github.com/alexeldeib/atlas -w . 
+  lint:
+    cmds:
+    - golangci-lint run --fix -c .golangci.yml 
